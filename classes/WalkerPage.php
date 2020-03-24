@@ -81,7 +81,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 			 * @since 2.8.0
 			 *
 			 * @see wp_list_pages()
-			 *
+			 * @since 0.0.1
 			 * @param string[] $css_class    An array of CSS classes to be applied to each list item.
 			 * @param WP_Post  $page         Page data object.
 			 * @param int      $depth        Depth of page, used for padding.
@@ -106,7 +106,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 			/**
 			 * Filters the HTML attributes applied to a page menu item's anchor element.
 			 *
-			 * @since 4.8.0
+			 * @since 0.0.1
 			 *
 			 * @param array $atts {
 			 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.

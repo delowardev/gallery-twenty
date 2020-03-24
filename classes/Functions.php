@@ -5,6 +5,10 @@ if(!defined('ABSPATH')){
 }
 
 class Functions{
+    /**
+     * @since 0.0.1
+     * Functions constructor.
+     */
     public function __construct()
     {
         add_action('init', array($this, 'init'));
@@ -20,6 +24,7 @@ class Functions{
     }
 
     /**
+     * @since 0.0.1
      * Fire on init Hook
      */
     public function init()
@@ -28,6 +33,10 @@ class Functions{
         $this->gallery_twenty_classic_editor_styles();
     }
 
+    /**
+     * @since 0.0.1
+     * @param $mce_init
+     */
     public function tiny_mce_before_init($mce_init){
         $this->gallery_twenty_add_classic_editor_non_latin_styles($mce_init);
         $this->gallery_twenty_add_classic_editor_customizer_styles($mce_init);
@@ -35,6 +44,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Enqueue classic editor styles.
      */
     public function gallery_twenty_classic_editor_styles() {
@@ -53,7 +63,7 @@ class Functions{
      * Adds styles to the head of the TinyMCE iframe. Kudos to @Otto42 for the original solution.
      *
      * @param array $mce_init TinyMCE styles.
-     *
+     * @since 0.0.1
      * @return array $mce_init TinyMCE styles.
      */
     function gallery_twenty_add_classic_editor_customizer_styles( $mce_init ) {
@@ -75,7 +85,7 @@ class Functions{
      * Adds styles to the head of the TinyMCE iframe. Kudos to @Otto42 for the original solution.
      *
      * @param array $mce_init TinyMCE styles.
-     *
+     * @since 0.0.1
      * @return array $mce_init TinyMCE styles.
      */
 
@@ -98,11 +108,16 @@ class Functions{
 
     }
 
+    /*
+     * @since 0.0.1
+     * Enquery Scripts
+     */
     public function wp_enqueue_scripts(){
         $this->non_latin_languages();
     }
 
     /**
+     * @since 0.0.1
      * Enqueue supplemental block editor styles.
      */
     function gallery_twenty_block_editor_styles() {
@@ -125,6 +140,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Enqueue non-latin language styles
      */
 
@@ -138,6 +154,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Register navigation menus uses wp_nav_menu in five places.
      */
     function nav_menus() {
@@ -155,6 +172,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Fire on after_setup_theme Hook
      */
     function after_setup_theme()
@@ -165,6 +183,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Block Editor Settings.
      * Add custom colors and font sizes to the block editor.
      */
@@ -252,6 +271,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Theme Support Functions
      */
     function gallery_twenty_theme_support() {
@@ -369,7 +389,7 @@ class Functions{
      * If #12009 lands in WordPress, this function can no-op since it would be handled in core.
      *
      * @link https://core.trac.wordpress.org/ticket/12009
-     *
+     * @since 0.0.1
      * @param string $tag    The script tag.
      * @param string $handle The script handle.
      * @return string Script HTML string.
@@ -391,7 +411,7 @@ class Functions{
 
     /**
      * Get the information about the logo.
-     *
+     * @since 0.0.1
      * @param string $html The HTML output from get_custom_logo (core function).
      *
      * @return string $html
@@ -445,6 +465,7 @@ class Functions{
     }
 
     /**
+     * @since 0.0.1
      * Fire on widgets_init hook
      */
     function widgets_init()
@@ -454,6 +475,7 @@ class Functions{
 
 
     /**
+     * @since 0.0.1
      * Register widget areas.
      *
      * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -497,7 +519,7 @@ class Functions{
     /**
      * Get an array of elements.
      *
-     * @since 1.0
+     * @since 0.0.1
      *
      * @return array
      */
@@ -572,7 +594,7 @@ class Functions{
     /**
      * Enqueue scripts for the customizer preview.
      *
-     * @since 1.0.0
+     * @since 0.0.1
      *
      * @return void
      */
@@ -597,7 +619,7 @@ class Functions{
     /**
      * Returns an array of variables for the customizer preview.
      *
-     * @since 1.0.0
+     * @since 0.0.1
      *
      * @return array
      */
@@ -618,7 +640,7 @@ class Functions{
     /**
      * Get accessible color for an area.
      *
-     * @since 1.0.0
+     * @since 0.0.1
      *
      * @param string $area The area we want to get the colors for.
      * @param string $context Can be 'text' or 'accent'.
@@ -657,7 +679,7 @@ class Functions{
     /**
      * Enqueues scripts for customizer controls & settings.
      *
-     * @since 1.0.0
+     * @since 0.0.1
      *
      * @return void
      */
@@ -681,7 +703,7 @@ class Functions{
      * Return CSS for non-latin language, if available, or null
      *
      * @param string $type Whether to return CSS for the "front-end", "block-editor" or "classic-editor".
-     *
+     * @since 0.0.1
      * @return void
      */
     public static function get_non_latin_css( $type = 'front-end' ) {
@@ -783,7 +805,7 @@ class Functions{
      * Overwrite default more tag with styling and screen reader markup.
      *
      * @param string $html The default output HTML for the more tag.
-     *
+     * @since 0.0.1
      * @return string $html
      */
     function gallery_twenty_read_more_tag( $html ) {

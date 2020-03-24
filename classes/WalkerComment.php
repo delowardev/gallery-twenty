@@ -17,6 +17,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
         public static $instance;
 
         /**
+         * @since 0.0.1
          * Initialize Object
          * @return mixed
          */
@@ -37,7 +38,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 		 * @see https://developer.wordpress.org/reference/functions/get_avatar/
 		 * @see https://developer.wordpress.org/reference/functions/get_comment_reply_link/
 		 * @see https://developer.wordpress.org/reference/functions/get_edit_comment_link/
-		 *
+		 * @since 0.0.1
 		 * @param WP_Comment $comment Comment to display.
 		 * @param int        $depth   Depth of the current comment.
 		 * @param array      $args    An array of arguments.

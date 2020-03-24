@@ -14,6 +14,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 	class GalleryTwenty_Customize {
 
 		/**
+         * @since 0.0.1
 		 * Register customizer options.
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
@@ -134,7 +135,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			 * The control is a hue-only colorpicker, and there is a separate setting that holds values
 			 * for other colors calculated based on the selected hue and various background-colors on the page.
 			 *
-			 * @since 1.0.0
+			 * @since 0.0.1
 			 */
 
 			// Add the setting for the hue colorpicker.
@@ -414,7 +415,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 		 *
 		 * @static
 		 * @access public
-		 * @since 1.0.0
+		 * @since 0.0.1
 		 * @param array $value The value we want to sanitize.
 		 * @return array       Returns sanitized value. Each item in the array gets sanitized separately.
 		 */
@@ -434,6 +435,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 		}
 
 		/**
+         * @since 0.0.1
 		 * Sanitize select.
 		 *
 		 * @param string $input The input from the setting.
@@ -449,7 +451,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 
 		/**
 		 * Sanitize boolean for checkbox.
-		 *
+		 * @since 0.0.1
 		 * @param bool $checked Whether or not a box is checked.
 		 *
 		 * @return bool
@@ -500,7 +502,7 @@ if ( ! function_exists( 'gallery_twenty_customize_partial_site_logo' ) ) {
 
 /**
  * Input attributes for cover overlay opacity option.
- *
+ * @since 0.0.1
  * @return array Array containing attribute names and their values.
  */
 function gallery_twenty_customize_opacity_range() {

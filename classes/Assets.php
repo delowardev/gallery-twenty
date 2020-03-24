@@ -5,6 +5,11 @@ if(!defined('ABSPATH')){
 }
 
 class Assets{
+
+    /**
+     * @since 0.0.1
+     * Assets constructor.
+     */
     public function __construct()
     {
         add_action( 'wp_enqueue_scripts', array($this, 'wp_enqueue_scripts'));
@@ -12,6 +17,7 @@ class Assets{
     }
 
     /**
+     * @since 0.0.1
      * Fire on wp_enqueue_scripts Hook
      */
     public function wp_enqueue_scripts()
@@ -21,6 +27,7 @@ class Assets{
     }
 
     /**
+     * @since 0.0.1
      * Register & Enqueue Styles
      */
 
@@ -39,6 +46,7 @@ class Assets{
     }
 
     /**
+     * @since 0.0.1
      * Register & Enqueue Scripts
      */
     public function register_scripts()
@@ -51,6 +59,7 @@ class Assets{
     }
 
     /**
+     * @since 0.0.1
      * Print Footer Scripts
      */
     public function wp_print_footer_scripts()
@@ -59,6 +68,7 @@ class Assets{
     }
 
     /**
+     * @since 0.0.1
      * Fix skip link focus in IE11.
      *
      * This does not enqueue the script because it is tiny and because it is only for IE11,

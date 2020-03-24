@@ -16,6 +16,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		class GalleryTwenty_Separator_Control extends WP_Customize_Control {
 
 			/**
+             * @since 0.0.1
 			 * Render the hr.
 			 */
 			public function render_content() {

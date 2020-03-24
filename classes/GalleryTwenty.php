@@ -6,6 +6,7 @@ if(!defined('ABSPATH')){
 
 final class GalleryTwenty{
     /**
+     * @since 0.0.1
      * Theme Version
      * @var string
      */
@@ -13,6 +14,10 @@ final class GalleryTwenty{
     public $assets;
     public $functions;
 
+    /**
+     * @since 0.0.1
+     * GalleryTwenty constructor.
+     */
     public function __construct()
     {
         $this->define_constants();
@@ -23,6 +28,7 @@ final class GalleryTwenty{
     }
 
     /**
+     * @since 0.0.1
      * Load External Classes
      */
     public function load_classess()
@@ -32,6 +38,7 @@ final class GalleryTwenty{
     }
 
     /**
+     * @since 0.0.1
      * Initialize Object
      * @return mixed
      */
@@ -44,6 +51,7 @@ final class GalleryTwenty{
     }
 
     /**
+     * @since 0.0.1
      * Define Global Constants
      */
     public function define_constants()
@@ -56,6 +64,7 @@ final class GalleryTwenty{
     }
 
     /**
+     * @since 0.0.1
      * Include Required Files
      */
     public function includes()

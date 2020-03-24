@@ -17,6 +17,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 	    public static $instance;
 
         /**
+         * @since 0.0.1
          * Initialize Object
          * @return mixed
          */
@@ -31,7 +32,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 		/**
 		 * GET SVG CODE
 		 * Get the SVG code for the specified icon
-		 *
+		 * @since 0.0.1
 		 * @param string $icon Icon name.
 		 * @param string $group Icon group.
 		 * @param string $color Color.
@@ -57,6 +58,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 		}
 
 		/**
+         * @since 0.0.1
 		 * GET SOCIAL LINK SVG
 		 * Detects the social network from a URL and returns the SVG code for its icon.
 		 *
@@ -85,7 +87,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 		/**
 		 * ICON STORAGE
 		 * Store the code for all SVGs in an array.
-		 *
+		 * @since 0.0.1
 		 * @var array
 		 */
 		public static $ui_icons = array(
@@ -138,7 +140,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 		 *
 		 * By default, each Icon ID is matched against a .com TLD. To override this behavior,
 		 * specify all the domains it covers (including the .com TLD too, if applicable).
-		 *
+		 * @since 0.0.1
 		 * @var array
 		 */
 		public static $social_icons_map = array(
@@ -187,7 +189,7 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 
 		/**
 		 * Social Icons – svg sources.
-		 *
+		 * @since 0.0.1
 		 * @var array
 		 */
 		public static $social_icons = array(
