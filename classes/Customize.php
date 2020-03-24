@@ -339,7 +339,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => gallery_twenty_get_color_for_area( 'content', 'accent' ),
+					'default'           => Functions::gallery_twenty_get_color_for_area( 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);

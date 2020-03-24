@@ -14,6 +14,20 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 	 */
 	class GalleryTwenty_Walker_Comment extends Walker_Comment {
 
+        public static $instance;
+
+        /**
+         * Initialize Object
+         * @return mixed
+         */
+        public static function init()
+        {
+            if(!self::$instance){
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
+
 		/**
 		 * Outputs a comment in the HTML5 format.
 		 *

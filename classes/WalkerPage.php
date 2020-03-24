@@ -14,6 +14,20 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 	 */
 	class GalleryTwenty_Walker_Page extends Walker_Page {
 
+        public static $instance;
+
+        /**
+         * Initialize Object
+         * @return mixed
+         */
+        public static function init()
+        {
+            if(!self::$instance){
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
+
 		/**
 		 * Outputs the beginning of the current element in the tree.
 		 *

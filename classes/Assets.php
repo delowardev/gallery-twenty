@@ -18,9 +18,11 @@ class Assets{
     {
         $this->register_styles();
         $this->register_scripts();
-    }/**
- * Register & Enqueue Styles
- */
+    }
+
+    /**
+     * Register & Enqueue Styles
+     */
 
     public function register_styles()
     {

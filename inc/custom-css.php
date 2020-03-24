@@ -55,17 +55,17 @@ if ( ! function_exists( 'gallery_twenty_get_customizer_css' ) ) {
 	function gallery_twenty_get_customizer_css( $type = 'front-end' ) {
 
 		// Get variables.
-		$body              = sanitize_hex_color( gallery_twenty_get_color_for_area( 'content', 'text' ) );
+		$body              = sanitize_hex_color( Functions::gallery_twenty_get_color_for_area( 'content', 'text' ) );
 		$body_default      = '#000000';
-		$secondary         = sanitize_hex_color( gallery_twenty_get_color_for_area( 'content', 'secondary' ) );
+		$secondary         = sanitize_hex_color( Functions::gallery_twenty_get_color_for_area( 'content', 'secondary' ) );
 		$secondary_default = '#6d6d6d';
-		$borders           = sanitize_hex_color( gallery_twenty_get_color_for_area( 'content', 'borders' ) );
+		$borders           = sanitize_hex_color( Functions::gallery_twenty_get_color_for_area( 'content', 'borders' ) );
 		$borders_default   = '#dcd7ca';
-		$accent            = sanitize_hex_color( gallery_twenty_get_color_for_area( 'content', 'accent' ) );
+		$accent            = sanitize_hex_color( Functions::gallery_twenty_get_color_for_area( 'content', 'accent' ) );
 		$accent_default    = '#cd2653';
 
 		// Header.
-		$header_footer_background         = sanitize_hex_color( gallery_twenty_get_color_for_area( 'header-footer', 'background' ) );
+		$header_footer_background         = sanitize_hex_color( Functions::gallery_twenty_get_color_for_area( 'header-footer', 'background' ) );
 		$header_footer_background_default = '#ffffff';
 
 		// Cover.
@@ -92,7 +92,7 @@ if ( ! function_exists( 'gallery_twenty_get_customizer_css' ) ) {
 		if ( 'front-end' === $type ) {
 
 			// Auto-calculated colors.
-			$elements_definitions = gallery_twenty_get_elements_array();
+			$elements_definitions = Functions::gallery_twenty_get_elements_array();
 			foreach ( $elements_definitions as $context => $props ) {
 				foreach ( $props as $key => $definitions ) {
 					foreach ( $definitions as $property => $elements ) {
@@ -103,7 +103,7 @@ if ( ! function_exists( 'gallery_twenty_get_customizer_css' ) ) {
 						if ( ! is_array( $elements ) || empty( $elements ) ) {
 							continue;
 						}
-						$val = gallery_twenty_get_color_for_area( $context, $key );
+						$val = Functions::gallery_twenty_get_color_for_area( $context, $key );
 						if ( $val ) {
 							gallery_twenty_generate_css( implode( ',', $elements ), $property, $val );
 						}

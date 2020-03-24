@@ -55,8 +55,6 @@ final class GalleryTwenty{
         define('GT_ASSETS', GT_URL. '/assets');
     }
 
-
-
     /**
      * Include Required Files
      */
@@ -64,28 +62,18 @@ final class GalleryTwenty{
     {
         require GT_DIR . '/classes/Assets.php';
         require GT_DIR . '/classes/Functions.php';
-
         require GT_DIR . '/inc/template-tags.php';
-
         // Handle SVG icons.
-        require GT_DIR . '/classes/class-gallerytwenty-svg-icons.php';
+        require GT_DIR . '/classes/SVGIcons.php';
         require GT_DIR . '/inc/svg-icons.php';
-
         // Handle Customizer settings.
-        require GT_DIR . '/classes/class-gallerytwenty-customize.php';
-
+        require GT_DIR . '/classes/Customize.php';
         // Require Separator Control class.
-        require GT_DIR . '/classes/class-gallerytwenty-separator-control.php';
-
+        require GT_DIR . '/classes/SeparatorControl.php';
         // Custom comment walker.
-        require GT_DIR . '/classes/class-gallerytwenty-walker-comment.php';
-
+        require GT_DIR . '/classes/WalkerComment.php';
         // Custom page walker.
-        require GT_DIR . '/classes/class-gallerytwenty-walker-page.php';
-
-        // Non-latin language handling.
-        require GT_DIR . '/classes/class-gallerytwenty-non-latin-languages.php';
-
+        require GT_DIR . '/classes/WalkerPage.php';
         // Custom CSS.
         require GT_DIR . '/inc/custom-css.php';
     }

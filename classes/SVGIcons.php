@@ -13,6 +13,21 @@ if ( ! class_exists( 'GalleryTwenty_SVG_Icons' ) ) {
 	 * Retrieve the SVG code for the specified icon. Based on a solution in Twenty Nineteen.
 	 */
 	class GalleryTwenty_SVG_Icons {
+
+	    public static $instance;
+
+        /**
+         * Initialize Object
+         * @return mixed
+         */
+        public static function init()
+        {
+            if(!self::$instance){
+                self::$instance = new self();
+            }
+            return self::$instance;
+        }
+
 		/**
 		 * GET SVG CODE
 		 * Get the SVG code for the specified icon
