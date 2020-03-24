@@ -75,17 +75,24 @@ get_header();
 	}
 
 	if ( have_posts() ) {
-
-		$i = 0;
-		while ( have_posts() ) {
-			$i++;
-			if ( $i > 1 ) {
-				echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
-			}
-			the_post();
-			get_template_part( 'template-parts/content', get_post_type() );
-
-        }
+	    ?>
+        <div class="gallery-container alignwide">
+            <div class="row">
+                <?php
+                    while ( have_posts() ) {
+                        the_post();
+                        ?>
+                            <div class="col-md-4">
+                                <?php
+                                    get_template_part( 'template-parts/content', get_post_type() );
+                                ?>
+                            </div>
+                        <?php
+                    }
+                ?>
+            </div>
+        </div>
+        <?php
 	} elseif ( is_search() ) {
 		?>
 

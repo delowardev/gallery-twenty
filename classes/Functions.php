@@ -17,7 +17,8 @@ class Functions{
         add_action( 'get_custom_logo', array($this, 'get_custom_logo'));
         add_action( 'wp_enqueue_scripts', array($this, 'wp_enqueue_scripts'));
         add_action( 'enqueue_block_editor_assets', array($this, 'gallery_twenty_block_editor_styles'), 1, 1 );
-        add_filter( 'tiny_mce_before_init', array($this, 'tiny_mce_before_init') );
+        add_filter( 'gallery_twenty_add_classic_editor_non_latin_styles', array($this, 'tiny_mce_before_init') );
+        add_filter( 'gallery_twenty_add_classic_editor_customizer_styles', array($this, 'tiny_mce_before_init') );
         add_action( 'customize_preview_init', array($this, 'gallery_twenty_customize_preview_init') );
         add_action( 'customize_controls_enqueue_scripts', array($this, 'gallery_twenty_customize_controls_enqueue_scripts') );
         add_filter( 'the_content_more_link', array($this, 'gallery_twenty_read_more_tag') );
@@ -32,16 +33,6 @@ class Functions{
         $this->nav_menus();
         $this->gallery_twenty_classic_editor_styles();
     }
-
-    /**
-     * @since 0.0.1
-     * @param $mce_init
-     */
-    public function tiny_mce_before_init($mce_init){
-        $this->gallery_twenty_add_classic_editor_non_latin_styles($mce_init);
-        $this->gallery_twenty_add_classic_editor_customizer_styles($mce_init);
-    }
-
 
     /**
      * @since 0.0.1

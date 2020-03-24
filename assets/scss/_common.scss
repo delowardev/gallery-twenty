@@ -1,0 +1,21 @@
+.gallery-container{
+    &.alignwide{
+        margin-top: 8rem;
+        margin-bottom: 0;
+    }
+    .gallery-featured-media{
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .featured-media-inner{
+        display: block;
+    }
+    .gallery-post-title{
+        margin: 15px 0 25px;
+        font-size: 20px;
+        font-weight: 500;
+        a{
+            text-decoration: none;
+        }
+    }
+}
