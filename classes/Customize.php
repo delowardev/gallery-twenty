@@ -79,8 +79,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					'type'        => 'checkbox',
 					'section'     => 'title_tagline',
 					'priority'    => 10,
-					'label'       => __( 'Retina logo', 'gallery-twenty' ),
-					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'gallery-twenty' ),
+					'label'       => esc_html__( 'Retina logo', 'gallery-twenty' ),
+					'description' => esc_html__( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'gallery-twenty' ),
 				)
 			);
 
@@ -99,7 +99,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					$wp_customize,
 					'header_footer_background_color',
 					array(
-						'label'   => __( 'Header &amp; Footer Background Color', 'gallery-twenty' ),
+						'label'   => esc_html__( 'Header &amp; Footer Background Color', 'gallery-twenty' ),
 						'section' => 'colors',
 					)
 				)
@@ -121,10 +121,10 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 				array(
 					'type'    => 'radio',
 					'section' => 'colors',
-					'label'   => __( 'Primary Color', 'gallery-twenty' ),
+					'label'   => esc_html__( 'Primary Color', 'gallery-twenty' ),
 					'choices' => array(
-						'default' => __( 'Default', 'gallery-twenty' ),
-						'custom'  => __( 'Custom', 'gallery-twenty' ),
+						'default' => esc_html__( 'Default', 'gallery-twenty' ),
+						'custom'  => esc_html__( 'Custom', 'gallery-twenty' ),
 					),
 				)
 			);
@@ -181,7 +181,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					array(
 						'section'         => 'colors',
 						'settings'        => 'accent_hue',
-						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'gallery-twenty' ),
+						'description'     => esc_html__( 'Apply a custom color for links, buttons, featured images.', 'gallery-twenty' ),
 						'mode'            => 'hue',
 						'active_callback' => function() use ( $wp_customize ) {
 							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
@@ -200,7 +200,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			$wp_customize->add_section(
 				'options',
 				array(
-					'title'      => __( 'Theme Options', 'gallery-twenty' ),
+					'title'      => esc_html__( 'Theme Options', 'gallery-twenty' ),
 					'priority'   => 40,
 					'capability' => 'edit_theme_options',
 				)
@@ -223,7 +223,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					'type'     => 'checkbox',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'Show search in header', 'gallery-twenty' ),
+					'label'    => esc_html__( 'Show search in header', 'gallery-twenty' ),
 				)
 			);
 
@@ -244,7 +244,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					'type'     => 'checkbox',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'Show author bio', 'gallery-twenty' ),
+					'label'    => esc_html__( 'Show author bio', 'gallery-twenty' ),
 				)
 			);
 
@@ -265,10 +265,10 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					'type'     => 'radio',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'On archive pages, posts show:', 'gallery-twenty' ),
+					'label'    => esc_html__( 'On archive pages, posts show:', 'gallery-twenty' ),
 					'choices'  => array(
-						'full'    => __( 'Full text', 'gallery-twenty' ),
-						'summary' => __( 'Summary', 'gallery-twenty' ),
+						'full'    => esc_html__( 'Full text', 'gallery-twenty' ),
+						'summary' => esc_html__( 'Summary', 'gallery-twenty' ),
 					),
 				)
 			);
@@ -280,9 +280,9 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
             $wp_customize->add_section(
                 'gallery',
                 array(
-                    'title'         => __('Gallery Options', 'gallery-twenty'),
+                    'title'         => esc_html__('Gallery Options', 'gallery-twenty'),
                     'capability'    => 'edit_theme_options',
-                    'description'   => __('Settings to customize gallery', 'gallery-twenty'),
+                    'description'   => esc_html__('Settings to customize gallery', 'gallery-twenty'),
                     'priority'      => 41
                 )
             );
@@ -302,8 +302,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'select',
                     'section'     => 'gallery',
-                    'label'       => __( 'Column Count', 'gallery-twenty' ),
-                    'description' => __( 'Select how many column you want to show in a row', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Column Count', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Select how many column you want to show in a row', 'gallery-twenty' ),
                     'choices'     => array(
                         '12' => '1 Columns',
                         '6' => '2 Columns',
@@ -320,6 +320,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'capability'        => 'edit_theme_options',
                     'default'           => get_theme_mod('gallery_column_gutter', 'true'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
                 )
             );
 
@@ -328,8 +329,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'radio',
                     'section'     => 'gallery',
-                    'label'       => __( 'Column Gap/Spacing', 'gallery-twenty' ),
-                    'description'       => __( 'Enable/disable gap between columns', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Column Gap/Spacing', 'gallery-twenty' ),
+                    'description'       => esc_html__( 'Enable/disable gap between columns', 'gallery-twenty' ),
                     'choices'     => array(
                         'true' => 'Yes',
                         'false' => 'No',
@@ -352,7 +353,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'select',
                     'section'     => 'gallery',
-                    'label'       => __( 'Gallery Style', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Gallery Style', 'gallery-twenty' ),
                     'choices'     => array(
                         'gallery-style-1' => 'Content Inside',
                         'gallery-style-2' => 'Content Inside Hidden',
@@ -368,6 +369,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'capability'        => 'edit_theme_options',
                     'default'           => get_theme_mod('gallery_disable_heading', 'false'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
                 )
             );
 
@@ -376,8 +378,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'radio',
                     'section'     => 'gallery',
-                    'label'       => __( 'Disable Content', 'gallery-twenty' ),
-                    'description' => __( 'Settings to hide Gallery "Heading" & "Meta"', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Disable Content', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Settings to hide Gallery "Heading" & "Meta"', 'gallery-twenty' ),
                     'choices'     => array(
                         'true' => 'Yes',
                         'false' => 'No',
@@ -391,6 +393,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'capability'        => 'edit_theme_options',
                     'default'           => get_theme_mod('gallery_heading_size', '24'),
+                    'sanitize_callback' => 'sanitize_text_field',
                 )
             );
 
@@ -399,9 +402,9 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'number',
                     'section'     => 'gallery',
-                    'label'       => __( 'Heading font size', 'gallery-twenty' ),
-                    'description' => __( 'Option to change heading font size, default value: 24', 'gallery-twenty' ),
-                    'placeholder' => __( '24', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Heading font size', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Option to change heading font size, default value: 24', 'gallery-twenty' ),
+                    'placeholder' => esc_html__( '24', 'gallery-twenty' ),
                 )
             );
 
@@ -411,6 +414,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'capability'        => 'edit_theme_options',
                     'default'           => get_theme_mod('gallery_heading_ellipsis', 'true'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
                 )
             );
 
@@ -419,8 +423,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'radio',
                     'section'     => 'gallery',
-                    'label'       => __( 'Heading Text Overflow', 'gallery-twenty' ),
-                    'description' => __( 'Settings to toggle ellipsis on heading', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Heading Text Overflow', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Settings to toggle ellipsis on heading', 'gallery-twenty' ),
                     'choices'     => array(
                         'true' => 'Ellipsis',
                         'false' => 'Normal',
@@ -452,6 +456,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'capability'        => 'edit_theme_options',
                     'default'           => get_theme_mod('gallery_meta_position', 'disable'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
                 )
             );
 
@@ -460,8 +465,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'radio',
                     'section'     => 'gallery',
-                    'label'       => __( 'Meta Position', 'gallery-twenty' ),
-                    'description'  => __( "Select meta position, <b>You must select Date or Author name meta below to show meta</b>", 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Meta Position', 'gallery-twenty' ),
+                    'description'  => esc_html__( "Select meta position, You must select Date or Author name meta below to show meta", 'gallery-twenty' ),
                     'choices'     => array(
                         'disable' => 'Disable',
                         'before' => 'Before heading',
@@ -487,8 +492,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'checkbox',
                     'section'     => 'gallery',
-                    'label'       => __( 'Author Name', 'gallery-twenty' ),
-                    'description' => __( 'Show Author name in gallery meta', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Author Name', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Show Author name in gallery meta', 'gallery-twenty' ),
                 )
             );
 
@@ -506,8 +511,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'checkbox',
                     'section'     => 'gallery',
-                    'label'       => __( 'Date', 'gallery-twenty' ),
-                    'description' => __( 'Show Date in gallery meta', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Date', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Show Date in gallery meta', 'gallery-twenty' ),
                 )
             );
 
@@ -526,8 +531,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 array(
                     'type'        => 'checkbox',
                     'section'     => 'gallery',
-                    'label'       => __( 'Category', 'gallery-twenty' ),
-                    'description' => __( 'Show category in gallery meta', 'gallery-twenty' ),
+                    'label'       => esc_html__( 'Category', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Show category in gallery meta', 'gallery-twenty' ),
                 )
             );
 
@@ -538,9 +543,9 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			$wp_customize->add_section(
 				'cover_template_options',
 				array(
-					'title'       => __( 'Cover Template', 'gallery-twenty' ),
+					'title'       => esc_html__( 'Cover Template', 'gallery-twenty' ),
 					'capability'  => 'edit_theme_options',
-					'description' => __( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'gallery-twenty' ),
+					'description' => esc_html__( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'gallery-twenty' ),
 					'priority'    => 42,
 				)
 			);
@@ -562,8 +567,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 				array(
 					'type'        => 'checkbox',
 					'section'     => 'cover_template_options',
-					'label'       => __( 'Fixed Background Image', 'gallery-twenty' ),
-					'description' => __( 'Creates a parallax effect when the visitor scrolls.', 'gallery-twenty' ),
+					'label'       => esc_html__( 'Fixed Background Image', 'gallery-twenty' ),
+					'description' => esc_html__( 'Creates a parallax effect when the visitor scrolls.', 'gallery-twenty' ),
 				)
 			);
 
@@ -609,8 +614,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					$wp_customize,
 					'cover_template_overlay_background_color',
 					array(
-						'label'       => __( 'Overlay Background Color', 'gallery-twenty' ),
-						'description' => __( 'The color used for the overlay. Defaults to the accent color.', 'gallery-twenty' ),
+						'label'       => esc_html__( 'Overlay Background Color', 'gallery-twenty' ),
+						'description' => esc_html__( 'The color used for the overlay. Defaults to the accent color.', 'gallery-twenty' ),
 						'section'     => 'cover_template_options',
 					)
 				)
@@ -631,8 +636,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 					$wp_customize,
 					'cover_template_overlay_text_color',
 					array(
-						'label'       => __( 'Overlay Text Color', 'gallery-twenty' ),
-						'description' => __( 'The color used for the text in the overlay.', 'gallery-twenty' ),
+						'label'       => esc_html__( 'Overlay Text Color', 'gallery-twenty' ),
+						'description' => esc_html__( 'The color used for the text in the overlay.', 'gallery-twenty' ),
 						'section'     => 'cover_template_options',
 					)
 				)
@@ -652,8 +657,8 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			$wp_customize->add_control(
 				'cover_template_overlay_opacity',
 				array(
-					'label'       => __( 'Overlay Opacity', 'gallery-twenty' ),
-					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'gallery-twenty' ),
+					'label'       => esc_html__( 'Overlay Opacity', 'gallery-twenty' ),
+					'description' => esc_html__( 'Make sure that the contrast is high enough so that the text is readable.', 'gallery-twenty' ),
 					'section'     => 'cover_template_options',
 					'type'        => 'range',
 					'input_attrs' => gallery_twenty_customize_opacity_range(),

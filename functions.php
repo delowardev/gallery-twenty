@@ -41,7 +41,7 @@ if ( ! function_exists( 'wp_body_open' ) ) {
  * Include a skip to content link at the top of the page so that users can bypass the menu.
  */
 function gallery_twenty_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'gallery-twenty' ) . '</a>';
+	echo '<a class="skip-link screen-reader-text" href="#site-content">' . esc_html__( 'Skip to the content', 'gallery-twenty' ) . '</a>';
 }
 
 add_action( 'wp_body_open', 'gallery_twenty_skip_link', 5 );

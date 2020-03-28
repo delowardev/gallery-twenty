@@ -17,13 +17,13 @@
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'Search for:', 'gallery-twenty' ),
+					'label' => esc_html__( 'Search for:', 'gallery-twenty' ),
 				)
 			);
 			?>
 
 			<button class="toggle search-untoggle close-search-toggle fill-children-current-color" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-				<span class="screen-reader-text"><?php _e( 'Close search', 'gallery-twenty' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Close search', 'gallery-twenty' ); ?></span>
 				<?php gallery_twenty_the_theme_svg( 'cross' ); ?>
 			</button><!-- .search-toggle -->
 

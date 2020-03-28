@@ -68,7 +68,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 							printf(
 								'<span class="fn">%1$s</span><span class="screen-reader-text says">%2$s</span>',
 								esc_html( $comment_author ),
-								__( 'says:', 'gallery-twenty' )
+								esc_html__( 'says:', 'gallery-twenty' )
 							);
 
 							if ( ! empty( $comment_author_url ) ) {
@@ -81,7 +81,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 							<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
 								<?php
 								/* Translators: 1 = comment date, 2 = comment time */
-								$comment_timestamp = sprintf( __( '%1$s at %2$s', 'gallery-twenty' ), get_comment_date( '', $comment ), get_comment_time() );
+								$comment_timestamp = sprintf( esc_html__( '%1$s at %2$s', 'gallery-twenty' ), get_comment_date( '', $comment ), get_comment_time() );
 								?>
 								<time datetime="<?php comment_time( 'c' ); ?>" title="<?php echo esc_attr( $comment_timestamp ); ?>">
 									<?php echo esc_html( $comment_timestamp ); ?>
@@ -89,7 +89,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 							</a>
 							<?php
 							if ( get_edit_comment_link() ) {
-								echo ' <span aria-hidden="true">&bull;</span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . __( 'Edit', 'gallery-twenty' ) . '</a>';
+								echo ' <span aria-hidden="true">&bull;</span> <a class="comment-edit-link" href="' . esc_url( get_edit_comment_link() ) . '">' . esc_html__( 'Edit', 'gallery-twenty' ) . '</a>';
 							}
 							?>
 						</div><!-- .comment-metadata -->
@@ -104,7 +104,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 
 						if ( '0' === $comment->comment_approved ) {
 							?>
-							<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'gallery-twenty' ); ?></p>
+							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'gallery-twenty' ); ?></p>
 							<?php
 						}
 
@@ -139,7 +139,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Comment' ) ) {
 								echo $comment_reply_link; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped --Link is escaped in https://developer.wordpress.org/reference/functions/get_comment_reply_link/
 							}
 							if ( $by_post_author ) {
-								echo '<span class="by-post-author">' . __( 'By Post Author', 'gallery-twenty' ) . '</span>';
+								echo '<span class="by-post-author">' . esc_html__( 'By Post Author', 'gallery-twenty' ) . '</span>';
 							}
 							?>
 

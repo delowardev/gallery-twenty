@@ -44,14 +44,32 @@ class Shortcodes{
     public function gallery_shortcode($atts, $content = null) {
         /**
          * @var $column
-         * @var $class
+         * @var $classes
+         * @var $gutter
+         * @var $disable_heading
+         * @var $meta_position
+         * @var $meta
+         * @var $heading_size
+         * @var $heading_ellipsis
          * @var $pagination
          */
         extract(shortcode_atts(array(
-            'column'        => get_theme_mod('gallery_column', '4'),
-            'class'         => 'section-inner',
-            'pagination'    => 'true'
+            'column'            => get_theme_mod('gallery_column', '4'),
+            'classes'           => null,
+            'gutter'            => null,
+            'disable_heading'   => null,
+            'meta_position'     => null,
+            'meta'              => array(),
+            'heading_size'      => null,
+            'heading_ellipsis'  => null,
+            'pagination'        => 'true'
         ), $atts));
+
+
+        if(!empty($meta)){
+            $meta = explode(',', $meta);
+            $meta = array_map('trim', $meta);
+        }
 
 
         $args = array(
@@ -61,7 +79,7 @@ class Shortcodes{
         query_posts($args);
         ob_start();
         if(have_posts()){
-            echo gutils()::gallery_markup($column, $class);
+            gallery_twenty_utils()::gallery_markup($column, $classes, $gutter, $disable_heading, $meta_position, $meta, $heading_size, $heading_ellipsis);
         }
         if('true' === $pagination){
             get_template_part('template-parts/pagination');

@@ -20,17 +20,17 @@
 
 						<p class="footer-copyright">&copy;
 							<?php
-							echo date_i18n(
-								/* translators: Copyright date format, see https://secure.php.net/date */
-								_x( 'Y', 'copyright date format', 'gallery-twenty' )
-							);
+							echo esc_html(date_i18n(
+                            /* translators: Copyright date format, see https://secure.php.net/date */
+                                esc_html_x( 'Y', 'copyright date format', 'gallery-twenty' )
+                            ));
 							?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 						</p><!-- .footer-copyright -->
 
 						<p class="powered-by-wordpress">
-							<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gallery-twenty' ) ); ?>">
-								<?php _e( 'Powered by WordPress', 'gallery-twenty' ); ?>
+							<a href="<?php echo esc_url( esc_html__( 'https://wordpress.org/', 'gallery-twenty' ) ); ?>">
+								<?php esc_html_e( 'Powered by WordPress', 'gallery-twenty' ); ?>
 							</a>
 						</p><!-- .powered-by-wordpress -->
 
@@ -40,13 +40,13 @@
 						<span class="to-the-top-long">
 							<?php
 							/* translators: %s: HTML character for up arrow */
-							printf( __( 'To the top %s', 'gallery-twenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+							printf( esc_html__( 'To the top %s', 'gallery-twenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
 							?>
 						</span><!-- .to-the-top-long -->
 						<span class="to-the-top-short">
 							<?php
 							/* translators: %s: HTML character for up arrow */
-							printf( __( 'Up %s', 'gallery-twenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+							printf( esc_html__( 'Up %s', 'gallery-twenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
 							?>
 						</span><!-- .to-the-top-short -->
 					</a><!-- .to-the-top -->

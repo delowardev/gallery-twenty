@@ -34,7 +34,6 @@ class Assets{
     public function register_styles()
     {
         wp_enqueue_style( 'gallery_twenty-style', get_stylesheet_uri(), array(), GT_VERSION );
-        wp_enqueue_style( 'gallery_twenty-extend', get_template_directory_uri() . '/assets/css/extend.css', array(), GT_VERSION );
         wp_style_add_data( 'gallery_twenty-style', 'rtl', 'replace' );
 
         // Add output of Customizer settings as inline style.

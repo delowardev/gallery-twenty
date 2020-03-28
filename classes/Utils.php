@@ -35,7 +35,7 @@ class Utils{
             $column = get_theme_mod('gallery_column', '4');
         }
         if('post' !== get_post_type()) return '';
-        ob_start();
+//        ob_start();
         ?>
             <div class="col-sm-6 col-md-<?php echo esc_attr($column) ?>">
                 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -54,7 +54,7 @@ class Utils{
                                             <li class="post-author meta-wrapper">
                                             <span class="meta-icon">
                                                 <span class="screen-reader-text">
-                                                    <?php _e( 'Post author', 'gallery-twenty' ); ?>
+                                                    <?php esc_html_e( 'Post author', 'gallery-twenty' ); ?>
                                                 </span>
                                                 <?php gallery_twenty_the_theme_svg( 'user' ); ?>
                                             </span>
@@ -62,7 +62,7 @@ class Utils{
                                                 <?php
                                                 printf(
                                                 /* translators: %s: Author name */
-                                                    __( 'By %s', 'gallery-twenty' ),
+                                                    esc_html__( 'By %s', 'gallery-twenty' ),
                                                     '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a>'
                                                 );
                                                 ?>
@@ -72,7 +72,7 @@ class Utils{
                                         <?php if(in_array('date', $meta)) { ?>
                                             <li class="post-date meta-wrapper">
                                             <span class="meta-icon">
-                                                <span class="screen-reader-text"><?php _e( 'Post date', 'twentytwenty' ); ?></span>
+                                                <span class="screen-reader-text"><?php esc_html_e( 'Post date', 'gallery-twenty' ); ?></span>
                                                 <?php gallery_twenty_the_theme_svg( 'calendar' ); ?>
                                             </span>
                                                 <span class="meta-text">
@@ -83,11 +83,11 @@ class Utils{
                                         <?php if(in_array('category', $meta)) { ?>
                                             <li class="post-categories meta-wrapper">
                                             <span class="meta-icon">
-                                                <span class="screen-reader-text"><?php _e( 'Categories', 'gallery-twenty' ); ?></span>
+                                                <span class="screen-reader-text"><?php esc_html_e( 'Categories', 'gallery-twenty' ); ?></span>
                                                 <?php gallery_twenty_the_theme_svg( 'folder' ); ?>
                                             </span>
                                                 <span class="meta-text">
-                                                <?php _ex( 'In', 'A string that is output before one or more categories', 'gallery-twenty' ); ?> <?php the_category( ', ' ); ?>
+                                                <?php esc_html_x( 'In', 'A string that is output before one or more categories', 'gallery-twenty' ); ?> <?php the_category( ', ' ); ?>
                                             </span>
                                             </li>
                                         <?php } ?>
@@ -99,7 +99,7 @@ class Utils{
                 </article>
             </div>
         <?php
-        return ob_get_clean();
+//        return ob_get_clean();
     }
 
     /**
@@ -186,20 +186,20 @@ class Utils{
         $heading_ellipsis = $heading_ellipsis !== 'false' ? 'nowrap' : 'normal';
 
 
-        ob_start();
+//        ob_start();
         ?>
             <div class="gallery-container <?php echo esc_attr($classes) ?>" style="--gallery-heading-size: <?php echo esc_attr($heading_size . 'px'); ?>; --gallery-heading-whitespace: <?php echo esc_attr($heading_ellipsis); ?>">
                 <div class="row gallery-row <?php echo esc_attr($gutter); ?>">
                     <?php
                         while(have_posts()){
                             the_post();
-                            echo self::gallery_item_markup($column, $disable_heading, $meta_position, $meta);
+                            self::gallery_item_markup(esc_html($column), esc_html($disable_heading), esc_html($meta_position), $meta);
                         }
                     ?>
                 </div>
             </div>
         <?php
-        return ob_get_clean();
+//        return ob_get_clean();
     }
 
 }

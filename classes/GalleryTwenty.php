@@ -86,17 +86,29 @@ final class GalleryTwenty{
      */
     public function includes()
     {
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/Assets.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/Functions.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/inc/template-tags.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/SVGIcons.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/inc/svg-icons.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/Customize.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/SeparatorControl.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/WalkerComment.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/WalkerPage.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/inc/custom-css.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/Shortcodes.php';
+        // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
         require GT_DIR . '/classes/Utils.php';
     }
 
@@ -106,7 +118,6 @@ final class GalleryTwenty{
  * Initilize Main Class
  * @return mixed
  */
-// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
 function gallery_twenty(){
     return GalleryTwenty::init();
 }
@@ -115,8 +126,8 @@ function gallery_twenty(){
  * Utility Class
  * @return mixed
  */
-// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
-function gutils(){
+
+function gallery_twenty_utils(){
     return Utils::init();
 }
 

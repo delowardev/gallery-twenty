@@ -34,7 +34,7 @@
                 if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
                     the_excerpt();
                 } else {
-                    the_content( __( 'Continue reading', 'gallery-twenty' ) );
+                    the_content( esc_html__( 'Continue reading', 'gallery-twenty' ) );
                 }
                 ?>
 
@@ -46,7 +46,7 @@
             <?php
             wp_link_pages(
                 array(
-                    'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'gallery-twenty' ) . '"><span class="label">' . __( 'Pages:', 'gallery-twenty' ) . '</span>',
+                    'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'gallery-twenty' ) . '"><span class="label">' . esc_html__( 'Pages:', 'gallery-twenty' ) . '</span>',
                     'after'       => '</nav>',
                     'link_before' => '<span class="page-number">',
                     'link_after'  => '</span>',

@@ -29,7 +29,7 @@ get_header();
 
 		$archive_title = sprintf(
 			'%1$s %2$s',
-			'<span class="color-accent">' . __( 'Search:', 'gallery-twenty' ) . '</span>',
+			'<span class="color-accent">' . esc_html__( 'Search:', 'gallery-twenty' ) . '</span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
 
@@ -45,7 +45,7 @@ get_header();
 				number_format_i18n( $wp_query->found_posts )
 			);
 		} else {
-			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'gallery-twenty' );
+			$archive_subtitle = esc_html__( 'We could not find any results for your search. You can give it another try through the search form below.', 'gallery-twenty' );
 		}
 	} elseif ( ! is_home() ) {
 		$archive_title    = get_the_archive_title();
@@ -80,7 +80,7 @@ get_header();
 	        ?>
                 <div class="post-inner">
                     <?php
-                        echo gutils()::gallery_markup();
+                        gallery_twenty_utils()::gallery_markup();
                     ?>
                 </div>
             <?php
@@ -106,7 +106,7 @@ get_header();
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'search again', 'gallery-twenty' ),
+					'label' => esc_html__( 'search again', 'gallery-twenty' ),
 				)
 			);
 			?>

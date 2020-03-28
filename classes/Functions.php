@@ -151,11 +151,11 @@ class Functions{
     function nav_menus() {
 
         $locations = array(
-            'primary'  => __( 'Desktop Horizontal Menu', 'gallery-twenty' ),
-            'expanded' => __( 'Desktop Expanded Menu', 'gallery-twenty' ),
-            'mobile'   => __( 'Mobile Menu', 'gallery-twenty' ),
-            'footer'   => __( 'Footer Menu', 'gallery-twenty' ),
-            'social'   => __( 'Social Menu', 'gallery-twenty' ),
+            'primary'  => esc_html__( 'Desktop Horizontal Menu', 'gallery-twenty' ),
+            'expanded' => esc_html__( 'Desktop Expanded Menu', 'gallery-twenty' ),
+            'mobile'   => esc_html__( 'Mobile Menu', 'gallery-twenty' ),
+            'footer'   => esc_html__( 'Footer Menu', 'gallery-twenty' ),
+            'social'   => esc_html__( 'Social Menu', 'gallery-twenty' ),
         );
 
         register_nav_menus( $locations );
@@ -183,22 +183,22 @@ class Functions{
         // Block Editor Palette.
         $editor_color_palette = array(
             array(
-                'name'  => __( 'Accent Color', 'gallery-twenty' ),
+                'name'  => esc_html__( 'Accent Color', 'gallery-twenty' ),
                 'slug'  => 'accent',
                 'color' => self::gallery_twenty_get_color_for_area( 'content', 'accent' ),
             ),
             array(
-                'name'  => __( 'Primary', 'gallery-twenty' ),
+                'name'  => esc_html__( 'Primary', 'gallery-twenty' ),
                 'slug'  => 'primary',
                 'color' => self::gallery_twenty_get_color_for_area( 'content', 'text' ),
             ),
             array(
-                'name'  => __( 'Secondary', 'gallery-twenty' ),
+                'name'  => esc_html__( 'Secondary', 'gallery-twenty' ),
                 'slug'  => 'secondary',
                 'color' => self::gallery_twenty_get_color_for_area( 'content', 'secondary' ),
             ),
             array(
-                'name'  => __( 'Subtle Background', 'gallery-twenty' ),
+                'name'  => esc_html__( 'Subtle Background', 'gallery-twenty' ),
                 'slug'  => 'subtle-background',
                 'color' => self::gallery_twenty_get_color_for_area( 'content', 'borders' ),
             ),
@@ -211,7 +211,7 @@ class Functions{
             $background_color     = $background_color_arr[0]['default-color'];
         }
         $editor_color_palette[] = array(
-            'name'  => __( 'Background Color', 'gallery-twenty' ),
+            'name'  => esc_html__( 'Background Color', 'gallery-twenty' ),
             'slug'  => 'background',
             'color' => '#' . $background_color,
         );
@@ -361,6 +361,7 @@ class Functions{
          * page load, as it is a one-off operation only needed once in the customizer.
          */
         if ( is_customize_preview() ) {
+            // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
             require get_template_directory() . '/inc/starter-content.php';
             add_theme_support( 'starter-content', gallery_twenty_get_starter_content() );
         }
@@ -488,9 +489,9 @@ class Functions{
             array_merge(
                 $shared_args,
                 array(
-                    'name'        => __( 'Footer #1', 'gallery-twenty' ),
+                    'name'        => esc_html__( 'Footer #1', 'gallery-twenty' ),
                     'id'          => 'sidebar-1',
-                    'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Widgets in this area will be displayed in the first column in the footer.', 'gallery-twenty' ),
                 )
             )
         );
@@ -500,9 +501,9 @@ class Functions{
             array_merge(
                 $shared_args,
                 array(
-                    'name'        => __( 'Footer #2', 'gallery-twenty' ),
+                    'name'        => esc_html__( 'Footer #2', 'gallery-twenty' ),
                     'id'          => 'sidebar-2',
-                    'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'gallery-twenty' ),
+                    'description' => esc_html__( 'Widgets in this area will be displayed in the second column in the footer.', 'gallery-twenty' ),
                 )
             )
         );

@@ -344,14 +344,14 @@ function gallery_twenty_get_post_meta( $post_id = null, $location = 'single-top'
 					?>
 					<li class="post-author meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Post author', 'gallery-twenty' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Post author', 'gallery-twenty' ); ?></span>
 							<?php gallery_twenty_the_theme_svg( 'user' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php
 							printf(
 								/* translators: %s: Author name */
-								__( 'By %s', 'gallery-twenty' ),
+								esc_html__( 'By %s', 'gallery-twenty' ),
 								'<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author_meta( 'display_name' ) ) . '</a>'
 							);
 							?>
@@ -368,7 +368,7 @@ function gallery_twenty_get_post_meta( $post_id = null, $location = 'single-top'
 					?>
 					<li class="post-date meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Post date', 'gallery-twenty' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Post date', 'gallery-twenty' ); ?></span>
 							<?php gallery_twenty_the_theme_svg( 'calendar' ); ?>
 						</span>
 						<span class="meta-text">
@@ -386,11 +386,11 @@ function gallery_twenty_get_post_meta( $post_id = null, $location = 'single-top'
 					?>
 					<li class="post-categories meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Categories', 'gallery-twenty' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Categories', 'gallery-twenty' ); ?></span>
 							<?php gallery_twenty_the_theme_svg( 'folder' ); ?>
 						</span>
 						<span class="meta-text">
-							<?php _ex( 'In', 'A string that is output before one or more categories', 'gallery-twenty' ); ?> <?php the_category( ', ' ); ?>
+							<?php esc_html_x( 'In', 'A string that is output before one or more categories', 'gallery-twenty' ); ?> <?php the_category( ', ' ); ?>
 						</span>
 					</li>
 					<?php
@@ -404,7 +404,7 @@ function gallery_twenty_get_post_meta( $post_id = null, $location = 'single-top'
 					?>
 					<li class="post-tags meta-wrapper">
 						<span class="meta-icon">
-							<span class="screen-reader-text"><?php _e( 'Tags', 'gallery-twenty' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Tags', 'gallery-twenty' ); ?></span>
 							<?php gallery_twenty_the_theme_svg( 'tag' ); ?>
 						</span>
 						<span class="meta-text">
@@ -442,7 +442,7 @@ function gallery_twenty_get_post_meta( $post_id = null, $location = 'single-top'
 							<?php gallery_twenty_the_theme_svg( 'bookmark' ); ?>
 						</span>
 						<span class="meta-text">
-							<?php _e( 'Sticky post', 'gallery-twenty' ); ?>
+							<?php esc_html_e( 'Sticky post', 'gallery-twenty' ); ?>
 						</span>
 					</li>
 					<?php
@@ -552,7 +552,7 @@ function gallery_twenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			$toggle_duration      = gallery_twenty_toggle_duration();
 
 			// Add the sub menu toggle.
-			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'gallery-twenty' ) . '</span>' . gallery_twenty_get_theme_svg( 'chevron-down' ) . '</button>';
+			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Show sub menu', 'gallery-twenty' ) . '</span>' . gallery_twenty_get_theme_svg( 'chevron-down' ) . '</button>';
 
 		}
 

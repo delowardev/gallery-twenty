@@ -31,21 +31,21 @@ if ( $comments ) {
 			<h2 class="comment-reply-title">
 			<?php
 			if ( ! have_comments() ) {
-				_e( 'Leave a comment', 'gallery-twenty' );
-			} elseif ( '1' === $comments_number ) {
+				esc_html_e( 'Leave a comment', 'gallery-twenty' );
+			} elseif ( 1 === $comments_number ) {
 				/* translators: %s: post title */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'gallery-twenty' ), esc_html( get_the_title() ) );
+				printf( esc_html_x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'gallery-twenty' ), esc_html( get_the_title() ) );
 			} else {
 				echo sprintf(
 					/* translators: 1: number of comments, 2: post title */
-					_nx(
-						'%1$s reply on &ldquo;%2$s&rdquo;',
-						'%1$s replies on &ldquo;%2$s&rdquo;',
-						$comments_number,
-						'comments title',
-						'gallery-twenty'
-					),
-					number_format_i18n( $comments_number ),
+					esc_html(_nx(
+                        '%1$s reply on &ldquo;%2$s&rdquo;',
+                        '%1$s replies on &ldquo;%2$s&rdquo;',
+                        $comments_number,
+                        'comments title',
+                        'gallery-twenty'
+                    )),
+					esc_html(number_format_i18n( $comments_number )),
 					esc_html( get_the_title() )
 				);
 			}
@@ -71,8 +71,8 @@ if ( $comments ) {
 					'echo'      => false,
 					'end_size'  => 0,
 					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments', 'gallery-twenty' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'gallery-twenty' ),
+					'next_text' => esc_html__( 'Newer Comments', 'gallery-twenty' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . esc_html__( 'Older Comments', 'gallery-twenty' ),
 				)
 			);
 
@@ -124,7 +124,7 @@ if ( comments_open() || pings_open() ) {
 
 	<div class="comment-respond" id="respond">
 
-		<p class="comments-closed"><?php _e( 'Comments are closed.', 'gallery-twenty' ); ?></p>
+		<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', 'gallery-twenty' ); ?></p>
 
 	</div><!-- #respond -->
 

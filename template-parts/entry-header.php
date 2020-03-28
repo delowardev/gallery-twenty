@@ -33,7 +33,7 @@ if ( is_singular() ) {
 			?>
 
 			<div class="entry-categories">
-				<span class="screen-reader-text"><?php _e( 'Categories', 'gallery-twenty' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Categories', 'gallery-twenty' ); ?></span>
 				<div class="entry-categories-inner">
 					<?php the_category( ' ' ); ?>
 				</div><!-- .entry-categories-inner -->
