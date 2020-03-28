@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

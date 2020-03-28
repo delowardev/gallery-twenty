@@ -2,7 +2,7 @@
 /**
  * Gallery Twenty Custom CSS
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

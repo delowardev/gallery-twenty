@@ -1,21 +1,152 @@
+:root{
+    --gallery-heading-size: 24px;
+    --gallery-heading-whitespace: nowrap;
+}
+
+#site-header{
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+/**
+ * Gallery Styles
+ */
+
 .gallery-container{
-    &.alignwide{
-        margin-top: 8rem;
-        margin-bottom: 0;
+    .gallery-row:not(.no-gutters){
+        margin-top: -30px;
+        article{
+            margin-top: 30px;
+        }
     }
-    .gallery-featured-media{
-        margin-bottom: 15px;
-        margin-top: 15px;
+    /* -- style-1 -- */
+    &.gallery-style-4,
+    &.gallery-style-2,
+    &.gallery-style-1{
+        .gallery-post-content{
+            position: absolute;
+            background: rgba(#000, .5);
+            padding: 20px 30px;
+        }
+        h2{
+            a{
+                color: #ffffff;
+            }
+        }
+        .gallery-post-meta {
+            li {
+                color: #ffffff;
+                a {
+                    color: #ffffff;
+                }
+                svg path{
+                    fill: white;
+                }
+            }
+        }
     }
-    .featured-media-inner{
-        display: block;
+    
+    /* -- style-2 -- */
+    &.gallery-style-2{
+        .gallery-post-content{
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        article:hover .gallery-post-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
-    .gallery-post-title{
-        margin: 15px 0 25px;
-        font-size: 20px;
-        font-weight: 500;
-        a{
-            text-decoration: none;
+    
+    /* -- style-3 -- */
+    &.gallery-style-3{
+        .gallery-post-content{
+            padding-top: 20px;
+        }
+    }
+    
+    /* -- style-4 -- */
+    
+    &.gallery-style-4{
+        .gallery-post-content{
+            position: static;
+            background: #222222;
+        }
+    }
+    
+    
+    article{
+        position: relative;
+        overflow: hidden;
+        .featured-media-inner{
+            display: block;
+        }
+        .gallery-post-content{
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: row;
+            transition: 300ms;
+            flex-wrap: wrap;
+            &.meta-position-before{
+                .gallery-post-title{
+                    order: 2;
+                }
+                .gallery-post-meta{
+                    order: 1;
+                    margin-top: 0;
+                    margin-bottom: 6px;
+                }
+            }
+            .gallery-post-title{
+                margin: 0;
+                font-size: var(--gallery-heading-size);
+                font-weight: 500;
+                flex-grow: 1;
+                flex-basis: 100%;
+                min-width: 0;
+                a{
+                    pointer-events: all;
+                    text-decoration: none;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: var(--gallery-heading-whitespace);
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .gallery-post-meta{
+            margin: 12px 0 0 -12px;
+            padding: 0;
+            list-style: none;
+            font-size: 15px;
+            line-height: 24px;
+            pointer-events: all;
+            flex-grow: 1;
+            flex-basis: 100%;
+            min-width: 0;
+            li{
+                display: inline-flex;
+                margin: 0 0 0 12px;
+                align-items: center;
+                > span:not(:first-child){
+                    margin-left: 4px;
+                }
+                a{
+                    text-decoration: none;
+                    &:hover{
+                        opacity: .9;
+                        text-decoration: underline;
+                    }
+                }
+                svg{
+                    height: 16px;
+                }
+            }
         }
     }
 }

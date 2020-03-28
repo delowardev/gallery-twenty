@@ -2,7 +2,7 @@
 /**
  * Custom page walker for this theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */
@@ -88,7 +88,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 			 * @param array    $args         An array of arguments.
 			 * @param int      $current_page ID of the current page.
 			 */
-			$css_classes = implode( ' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ) );
+			$css_classes = implode( ' ', apply_filters( 'gallery_twenty_page_css_class', $css_class, $page, $depth, $args, $current_page ) );
 			$css_classes = $css_classes ? ' class="' . esc_attr( $css_classes ) . '"' : '';
 
 			if ( '' === $page->post_title ) {
@@ -119,6 +119,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 			 * @param array   $args         An array of arguments.
 			 * @param int     $current_page ID of the current page.
 			 */
+            // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
 			$atts = apply_filters( 'page_menu_link_attributes', $atts, $page, $depth, $args, $current_page );
 
 			$attributes = '';
@@ -167,6 +168,7 @@ if ( ! class_exists( 'GalleryTwenty_Walker_Page' ) ) {
 				$attributes,
 				$args['link_before'],
 				/** This filter is documented in wp-includes/post-template.php */
+                // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
 				apply_filters( 'the_title', $page->post_title, $page->ID ),
 				$args['link_after'],
 				$args['list_item_after']

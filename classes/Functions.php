@@ -274,13 +274,15 @@ class Functions{
         add_theme_support(
             'custom-background',
             array(
-                'default-color' => 'f5efe0',
+                'default-color' => 'ffffff',
             )
         );
 
         // Set content-width.
+
         global $content_width;
         if ( ! isset( $content_width ) ) {
+            // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
             $content_width = 580;
         }
 

@@ -3,7 +3,7 @@
  * Displays the menus and widgets at the end of the main element.
  * Visually, this output is presented as part of the footer element.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

@@ -2,7 +2,7 @@
 /**
  * Gallery Twenty SVG Icon helper functions
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

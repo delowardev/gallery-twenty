@@ -2,7 +2,7 @@
 /**
  * Custom icons for this theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

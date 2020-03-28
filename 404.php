@@ -2,7 +2,7 @@
 /**
  * The template for displaying the 404 template in the Gallery Twenty theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

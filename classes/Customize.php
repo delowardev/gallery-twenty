@@ -2,7 +2,7 @@
 /**
  * Customizer settings for this theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */
@@ -273,6 +273,265 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 				)
 			);
 
+            /**
+             * Gallery Settings
+             */
+
+            $wp_customize->add_section(
+                'gallery',
+                array(
+                    'title'         => __('Gallery Options', 'gallery-twenty'),
+                    'capability'    => 'edit_theme_options',
+                    'description'   => __('Settings to customize gallery', 'gallery-twenty'),
+                    'priority'      => 41
+                )
+            );
+
+            /* ---- column count ---- */
+            $wp_customize->add_setting(
+                'gallery_column',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_column', '4'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_column',
+                array(
+                    'type'        => 'select',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Column Count', 'gallery-twenty' ),
+                    'description' => __( 'Select how many column you want to show in a row', 'gallery-twenty' ),
+                    'choices'     => array(
+                        '12' => '1 Columns',
+                        '6' => '2 Columns',
+                        '4' => 'Default (3 Columns)',
+                        '3' => '4 Columns',
+                        '2' => '6 Columns',
+                    )
+                )
+            );
+
+            /* ---- column gap/gutter ---- */
+            $wp_customize->add_setting(
+                'gallery_column_gutter',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_column_gutter', 'true'),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_column_gutter',
+                array(
+                    'type'        => 'radio',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Column Gap/Spacing', 'gallery-twenty' ),
+                    'description'       => __( 'Enable/disable gap between columns', 'gallery-twenty' ),
+                    'choices'     => array(
+                        'true' => 'Yes',
+                        'false' => 'No',
+                    )
+                )
+            );
+
+            /* ---- Gallery Style ---- */
+            $wp_customize->add_setting(
+                'gallery_style',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_style', 'gallery-style-1'),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_style',
+                array(
+                    'type'        => 'select',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Gallery Style', 'gallery-twenty' ),
+                    'choices'     => array(
+                        'gallery-style-1' => 'Content Inside',
+                        'gallery-style-2' => 'Content Inside Hidden',
+                        'gallery-style-3' => 'Content Outside',
+                        'gallery-style-4' => 'Content Outside Boxed',
+                    )
+                )
+            );
+
+            /* ---- column gap/gutter ---- */
+            $wp_customize->add_setting(
+                'gallery_disable_heading',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_disable_heading', 'false'),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_disable_heading',
+                array(
+                    'type'        => 'radio',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Disable Content', 'gallery-twenty' ),
+                    'description' => __( 'Settings to hide Gallery "Heading" & "Meta"', 'gallery-twenty' ),
+                    'choices'     => array(
+                        'true' => 'Yes',
+                        'false' => 'No',
+                    )
+                )
+            );
+
+            /* ---- Heading Font Size ---- */
+            $wp_customize->add_setting(
+                'gallery_heading_size',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_heading_size', '24'),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_heading_size',
+                array(
+                    'type'        => 'number',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Heading font size', 'gallery-twenty' ),
+                    'description' => __( 'Option to change heading font size, default value: 24', 'gallery-twenty' ),
+                    'placeholder' => __( '24', 'gallery-twenty' ),
+                )
+            );
+
+            /* ---- column gap/gutter ---- */
+            $wp_customize->add_setting(
+                'gallery_heading_ellipsis',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_heading_ellipsis', 'true'),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_heading_ellipsis',
+                array(
+                    'type'        => 'radio',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Heading Text Overflow', 'gallery-twenty' ),
+                    'description' => __( 'Settings to toggle ellipsis on heading', 'gallery-twenty' ),
+                    'choices'     => array(
+                        'true' => 'Ellipsis',
+                        'false' => 'Normal',
+                    )
+                )
+            );
+
+            /* -- separator -- */
+            $wp_customize->add_setting(
+                'gallery_separator_1',
+                array(
+                    'sanitize_callback' => 'wp_filter_nohtml_kses',
+                )
+            );
+
+            $wp_customize->add_control(
+                new Gallery_Twenty_Separator_Control(
+                    $wp_customize,
+                    'gallery_separator_1',
+                    array(
+                        'section' => 'gallery',
+                    )
+                )
+            );
+
+            /* ---- column meta position ---- */
+            $wp_customize->add_setting(
+                'gallery_meta_position',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_meta_position', 'disable'),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_meta_position',
+                array(
+                    'type'        => 'radio',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Meta Position', 'gallery-twenty' ),
+                    'description'  => __( "Select meta position, <b>You must select Date or Author name meta below to show meta</b>", 'gallery-twenty' ),
+                    'choices'     => array(
+                        'disable' => 'Disable',
+                        'before' => 'Before heading',
+                        'after' => 'After heading',
+                    )
+                )
+            );
+
+
+            /* ---- Meta ---- */
+
+            $wp_customize->add_setting(
+                'gallery_column_meta_author',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_column_meta_author', true),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_column_meta_author',
+                array(
+                    'type'        => 'checkbox',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Author Name', 'gallery-twenty' ),
+                    'description' => __( 'Show Author name in gallery meta', 'gallery-twenty' ),
+                )
+            );
+
+            $wp_customize->add_setting(
+                'gallery_column_meta_date',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_column_meta_date', true),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_column_meta_date',
+                array(
+                    'type'        => 'checkbox',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Date', 'gallery-twenty' ),
+                    'description' => __( 'Show Date in gallery meta', 'gallery-twenty' ),
+                )
+            );
+
+
+            $wp_customize->add_setting(
+                'gallery_column_meta_category',
+                array(
+                    'capability'        => 'edit_theme_options',
+                    'default'           => get_theme_mod('gallery_column_meta_category', false),
+                    'sanitize_callback' => array( __CLASS__, 'sanitize_checkbox' ),
+                )
+            );
+
+            $wp_customize->add_control(
+                'gallery_column_meta_category',
+                array(
+                    'type'        => 'checkbox',
+                    'section'     => 'gallery',
+                    'label'       => __( 'Category', 'gallery-twenty' ),
+                    'description' => __( 'Show category in gallery meta', 'gallery-twenty' ),
+                )
+            );
+
+
 			/**
 			 * Template: Cover Template.
 			 */
@@ -326,7 +585,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
 			);
 
 			$wp_customize->add_control(
-				new GalleryTwenty_Separator_Control(
+				new Gallery_Twenty_Separator_Control(
 					$wp_customize,
 					'cover_template_separator_1',
 					array(

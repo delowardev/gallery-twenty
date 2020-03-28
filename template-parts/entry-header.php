@@ -2,7 +2,7 @@
 /**
  * Displays the post header
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

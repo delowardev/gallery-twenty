@@ -3,7 +3,7 @@
  * The template file for displaying the comments and comment form for the
  * Gallery Twenty theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

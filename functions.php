@@ -4,25 +4,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */
 
-/**
- * Table of Contents:
- * Theme Support
- * Required Files
- * Register Styles
- * Register Scripts
- * Register Menus
- * Custom Logo
- * WP Body Open
- * Register Sidebars
- * Enqueue Block Editor Assets
- * Enqueue Classic Editor Styles
- * Block Editor Settings
- */
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -44,7 +30,9 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	/**
 	 * Shim for wp_body_open, ensuring backwards compatibility with versions of WordPress older than 5.2.
 	 */
+    // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedFunctionFound
 	function wp_body_open() {
+        // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
 		do_action( 'wp_body_open' );
 	}
 }
@@ -57,6 +45,3 @@ function gallery_twenty_skip_link() {
 }
 
 add_action( 'wp_body_open', 'gallery_twenty_skip_link', 5 );
-
-
-

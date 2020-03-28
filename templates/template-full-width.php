@@ -3,7 +3,7 @@
  * Template Name: Full Width Template
  * Template Post Type: post, page
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0
  */

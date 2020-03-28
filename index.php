@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */
@@ -75,24 +75,29 @@ get_header();
 	}
 
 	if ( have_posts() ) {
-	    ?>
-        <div class="gallery-container alignwide">
-            <div class="row">
-                <?php
-                    while ( have_posts() ) {
-                        the_post();
-                        ?>
-                            <div class="col-md-4">
-                                <?php
-                                    get_template_part( 'template-parts/content', get_post_type() );
-                                ?>
-                            </div>
-                        <?php
-                    }
-                ?>
-            </div>
-        </div>
-        <?php
+
+	    if('post' === get_post_type()) {
+	        ?>
+                <div class="post-inner">
+                    <?php
+                        echo gutils()::gallery_markup();
+                    ?>
+                </div>
+            <?php
+        } else {
+
+            $i = 0;
+            while ( have_posts() ) {
+                $i++;
+                if ( $i > 1 ) {
+                    echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
+                }
+                the_post();
+                get_template_part( 'template-parts/content', get_post_type() );
+            }
+        }
+
+
 	} elseif ( is_search() ) {
 		?>
 

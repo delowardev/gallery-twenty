@@ -2,7 +2,7 @@
 /**
  * Displays the content when the cover template is used.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */

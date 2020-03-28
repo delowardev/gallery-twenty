@@ -2,7 +2,7 @@
 /**
  * Custom template tags for this theme.
  *
- * @package WordPress
+ * @package GalleryTwenty
  * @subpackage Gallery_Twenty
  * @since 1.0.0
  */
@@ -525,7 +525,7 @@ function gallery_twenty_filter_wp_list_pages_item_classes( $css_class, $item, $d
 
 }
 
-add_filter( 'page_css_class', 'gallery_twenty_filter_wp_list_pages_item_classes', 10, 5 );
+add_filter( 'gallery_twenty_page_css_class', 'gallery_twenty_filter_wp_list_pages_item_classes', 10, 5 );
 
 /**
  * Add a Sub Nav Toggle to the Expanded Menu and Mobile Menu.
