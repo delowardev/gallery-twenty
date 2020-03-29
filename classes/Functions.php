@@ -274,7 +274,7 @@ class Functions{
         add_theme_support(
             'custom-background',
             array(
-                'default-color' => 'dcd7ca',
+                'default-color' => 'f5efe0',
             )
         );
 
