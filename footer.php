@@ -29,8 +29,8 @@
 						</p><!-- .footer-copyright -->
 
 						<p class="powered-by-wordpress">
-							<a href="<?php echo esc_url( esc_html__( 'https://wordpress.org/', 'gallery-twenty' ) ); ?>">
-								<?php esc_html_e( 'Powered by WordPress', 'gallery-twenty' ); ?>
+							<a href="<?php echo esc_url( esc_html__( 'https://iwallpaper.xyz/', 'gallery-twenty' ) ); ?>">
+								<?php esc_html_e( 'Powered by iWallpaper', 'gallery-twenty' ); ?>
 							</a>
 						</p><!-- .powered-by-wordpress -->
 

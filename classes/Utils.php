@@ -41,7 +41,13 @@ class Utils{
                 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                     <figure class="gallery-featured-media">
                         <a title="<?php the_title(); ?>" class="gallery-featured-media-inner" href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail();?>
+                            <?php
+                                if(has_post_thumbnail()){
+                                    the_post_thumbnail();
+                                }else{
+                                    gallery_twenty_the_theme_svg('camera');
+                                }
+                            ?>
                         </a>
                     </figure>
                     <?php if($disable_heading !== 'true') { ?>
