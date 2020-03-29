@@ -52,6 +52,8 @@ class Shortcodes{
          * @var $heading_size
          * @var $heading_ellipsis
          * @var $pagination
+         * @var $post_status
+         * @var $posts_per_page
          */
         extract(shortcode_atts(array(
             'column'            => get_theme_mod('gallery_column', '4'),
@@ -62,7 +64,9 @@ class Shortcodes{
             'meta'              => array(),
             'heading_size'      => null,
             'heading_ellipsis'  => null,
-            'pagination'        => 'true'
+            'pagination'        => 'true',
+            'post_status'       => 'publish',
+            'posts_per_page'    => get_option('posts_per_page'),
         ), $atts));
 
 
@@ -74,8 +78,11 @@ class Shortcodes{
 
         $args = array(
             'post_type' => 'post',
-            'paged'     => is_front_page() ? get_query_var('page') : get_query_var('paged')
+            'paged'     => is_front_page() ? get_query_var('page') : get_query_var('paged'),
+            'post_status' => $post_status,
+            'posts_per_page' => $posts_per_page
         );
+
         query_posts($args);
         ob_start();
         if(have_posts()){
