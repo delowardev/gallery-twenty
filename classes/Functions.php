@@ -355,17 +355,6 @@ class Functions{
         // Add support for full and wide align images.
         add_theme_support( 'align-wide' );
 
-        /*
-         * Adds starter content to highlight the theme on fresh sites.
-         * This is done conditionally to avoid loading the starter content on every
-         * page load, as it is a one-off operation only needed once in the customizer.
-         */
-        if ( is_customize_preview() ) {
-            // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-            require get_template_directory() . '/inc/starter-content.php';
-            add_theme_support( 'starter-content', gallery_twenty_get_starter_content() );
-        }
-
         // Add theme support for selective refresh for widgets.
         add_theme_support( 'customize-selective-refresh-widgets' );
 
