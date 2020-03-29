@@ -307,7 +307,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                     'choices'     => array(
                         '12' => '1 Columns',
                         '6' => '2 Columns',
-                        '4' => 'Default (3 Columns)',
+                        '4' => '3 Columns',
                         '3' => '4 Columns',
                         '2' => '6 Columns',
                     )
@@ -343,7 +343,7 @@ if ( ! class_exists( 'GalleryTwenty_Customize' ) ) {
                 'gallery_style',
                 array(
                     'capability'        => 'edit_theme_options',
-                    'default'           => get_theme_mod('gallery_style', 'gallery-style-1'),
+                    'default'           => get_theme_mod('gallery_style', 'gallery-style-3'),
                     'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
                 )
             );

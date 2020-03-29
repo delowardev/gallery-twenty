@@ -1,6 +1,5 @@
 const { src, dest, series } = require('gulp');
 const zip = require('gulp-zip');
-const replace = require('gulp-replace');
 const clean = require('gulp-clean');
 
 function cleanBuild() {
@@ -15,28 +14,29 @@ function cleanZip() {
 
 function makeBuild() {
     return src([
-        './*',
-        '!**/.DS_Store',
-        '!**/.__MACOSX',
-        '!./build/*',
-        '!./.git/*',
+        './**',
+        '!./build/**',
+        '!./.sass-cache/**',
+        '!./.DS_Store',
+        '!./**/.DS_Store',
+        '!./node_modules/**',
+        '!./.git',
+        '!./dist/**',
+        '!./assets/scss/**',
         '!./.gitignore',
-        '!./.stylelintrc.json',
-        '!./.sass-cache',
-        '!./style.css.map',
-        '!./assets/scss/*',
-        '!./node_modules/*',
-        '!./**/*.zip',
         '!./gulpfile.js',
-        '!./readme.md',
-        '!./LICENSE.txt',
+        '!./style.css.map',
+        '!./style.scss',
         '!./package.json',
         '!./package-lock.json',
+        '!./yarn.lock'
     ]).pipe(dest('build/gallery-twenty/'));
 }
 
 function makeZip() {
-    return src('./build/**/*')
+    return src('./build/**/**')
         .pipe(zip('gallery-twenty.zip'))
         .pipe(dest('./build/'))
 }
+
+exports.default = series(cleanBuild, cleanZip, makeBuild, makeZip);

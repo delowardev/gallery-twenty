@@ -44,8 +44,6 @@ with others.
 	15. Widgets
 	16. Site Footer
 	17. Media Queries
-	18. Bootstrap Grid
-	19. Gallery Styles
 
 ----------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -8548,7 +8546,8 @@ html {
   .gallery-container .gallery-row:not(.no-gutters) {
     margin-top: -30px; }
     .gallery-container .gallery-row:not(.no-gutters) article {
-      margin-top: 30px; }
+      margin-top: 30px;
+      height: calc(100% - 30px); }
   .gallery-container.gallery-style-4 .gallery-post-content, .gallery-container.gallery-style-2 .gallery-post-content, .gallery-container.gallery-style-1 .gallery-post-content {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
@@ -8586,9 +8585,21 @@ html {
     background: #222222; }
   .gallery-container article {
     position: relative;
-    overflow: hidden; }
-    .gallery-container article .featured-media-inner {
-      display: block; }
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; }
+    .gallery-container article .gallery-featured-media {
+      flex-grow: 1; }
+    .gallery-container article .gallery-featured-media-inner {
+      display: block;
+      height: 100%;
+      width: 100%;
+      min-height: 220px;
+      background: #d7d7d7; }
+      .gallery-container article .gallery-featured-media-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
     .gallery-container article .gallery-post-content {
       width: 100%;
       bottom: 0;

@@ -136,7 +136,7 @@ class Utils{
 
         /*-- get style class from theme option --*/
         if(strpos($classes, 'gallery-style-') === false){
-            $classes .= ' ' . get_theme_mod('gallery_style', 'gallery-style-1');
+            $classes .= ' ' . get_theme_mod('gallery_style', 'gallery-style-3');
         }
 
         /*-- get gutter class from theme option --*/
