@@ -38,7 +38,7 @@ function gallery_twenty_get_starter_content() {
         '<!-- /wp:quote -->',
 
         '<!-- wp:paragraph -->',
-        '<p><a href="#">PlacesBeautiful Architecture That Will Blow Your Mind  Gillion, 2 years ago 0 </a> 3 min read  2559</p>',
+        '<p><a href="#">PlacesBeautiful Architecture That Will Blow Your Mind</a>3 min read</p>',
         '<!-- /wp:paragraph -->',
 
         '<!-- wp:paragraph -->',
@@ -46,11 +46,11 @@ function gallery_twenty_get_starter_content() {
         '<!-- /wp:paragraph -->',
 
         '<!-- wp:paragraph -->',
-        '<p>volutpat nec libero. Fusce mattis non nisi quis tincidunt. Donec dictum velit sed feugiat laoreet.</p>',
+        '<p>volutpat nec libero. Fusce mattis non nisi quis tincidunt. Donec dictum velit sed feugiat laor</p>',
         '<!-- /wp:paragraph -->',
 
         '<!-- wp:paragraph -->',
-        '<p><strong>Go to :</strong> <em><a href="#">Link Page</a></em></p>',
+        '<p><strong>Go to :</strong><em><a href="#">Link Page</a></em></p>',
         '<!-- /wp:paragraph -->',
 
         '<!-- wp:paragraph -->',

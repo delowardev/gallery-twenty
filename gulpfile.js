@@ -36,7 +36,7 @@ function makeBuild() {
 function makeZip() {
     return src('./build/**/**')
         .pipe(zip('gallery-twenty.zip'))
-        .pipe(dest('./build/'))
+        .pipe(dest('./'))
 }
 
-exports.default = series(cleanBuild, cleanZip, makeBuild, makeZip);
+exports.default = series(cleanBuild, cleanZip, makeBuild, makeZip, cleanBuild);
